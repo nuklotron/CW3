@@ -1,2 +1,4 @@
 .idea
 venvs
+.pytest_cache
+.coverage
