@@ -2,9 +2,12 @@ import utils
 
 
 def main():
+    data = utils.load_data()
+    data = utils.last_operations(data)
+    data = utils.final_result(data)
 
-    for k in utils.final_result():
-        print(k)
+    for row in data:
+        print(row)
 
 
 if __name__ == "__main__":

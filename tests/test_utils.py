@@ -1,17 +1,13 @@
-from utils import load_data, last_operations, final_result
+from utils import last_operations, final_result
 
 
-def test_load_data():
-    assert load_data()
-    pass
+def test_last_operations(test_data):
+    l_op = last_operations(test_data)
+    assert [x["date"] for x in l_op] == ["08.12.2019", "07.12.2019", "19.11.2019", "13.11.2019", "05.11.2019"]
 
 
-def test_last_operation():
-    assert last_operations()
-    pass
-
-
-def test_final_result():
-    assert final_result()
-    pass
+def test_final_result(test_data):
+    l_op = last_operations(test_data)
+    f_re = final_result(l_op)
+    assert f_re == ['08.12.2019 Открытие вклада\nОткрытие вклада   Счет **5907  \n41096.24 USD\n', '07.12.2019 Перевод организации\nVisa Classic 2842 87** **** 9012 -> Счет **3655  \n48150.39 USD\n', '19.11.2019 Перевод организации\nMaestro 7810 84** **** 5568 -> Счет **2869  \n30153.72 руб.\n', '13.11.2019 Перевод со счета на счет\nСчет 3861 14** **** 9794 -> Счет **8125  \n62814.53 руб.\n', '05.11.2019 Открытие вклада\nОткрытие вклада   Счет **8381  \n21344.35 руб.\n']
 
