@@ -31,15 +31,14 @@ def load_data():
         return executed_operations
 
 
-def last_operations():
+def last_operations(data):
     """
     Функция сортирует все выполненные операции по дате (от новой к старой)
     Возвращает последние 5 операций в списке last_excecuted_op
     Изменяет формат даты
     :return: last_excecuted_op
     """
-    list_to_sort = load_data()
-    sorted_list = sorted(list_to_sort, key=lambda y: y["date"], reverse=True)
+    sorted_list = sorted(data, key=lambda x: x["date"], reverse=True)
     last_excecuted_op = []
 
     for i in sorted_list:
@@ -52,16 +51,15 @@ def last_operations():
     return last_excecuted_op
 
 
-def final_result():
+def final_result(data):
     """
     Функция шифрует номера карт и счетов
     выводит отсортированный списко с зашифрованными картами/счетами
     :return:
     """
-    final_data = last_operations()
     final_list = []
 
-    for fd in final_data:
+    for fd in data:
         date = fd["date"]
         description = fd["description"]
         operation_amount = fd["operationAmount"]["amount"]
